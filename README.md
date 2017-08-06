@@ -2,45 +2,36 @@
 
 A package for creating a social network style news feed
 
-
-## Post (class) - Extends [BaseModel][1] - Implements [CommentableModel][2] and [LikeableModel][3]##
-
-### Instance Methods ###
-
-**user()** - The user who's feed the post was added to.
-
-**poster()** - The use who added the post to the feed. Poster may return the same as user if the user created the post in their own feed.
-
-**checkOwnership()** - Check if the user is the poster or the user as both can delete the post.
-
-**canUpdate()** - Check if the user is allowed to update the post. Only poster can change a post.
-
-
-## Feed (class) - Extends [BaseModel][1] ##
-
-Feed instances must be created by calling `user.feed()`. This will return the feed object for that user. You can then call the methods of the feed as needed.
-
-### Instance Methods ###
-
-**addPost(&lt;String&gt; body)** - Add a post to the users feed.
-
-```javascript
-Meteor.user().feed().addPost("Socialize Packages Rock!");
-```
+---
 
 ## User Extensions ##
+
+This package extends the `User` class from [socialize:user-model][4] to add a `feed` method that returns an instance of the Feed class.
 
 **User.prototype.feed()** - Get a feed object for the user.
 
 ```javascript
 var feed = Meteor.user().feed();
 ```
+---
 
+## Feed (class) - Extends [PostableModel][1] ##
 
-## Publications ##
+Feed instances must be created by calling `user.feed()`. This will return the feed object for that user which has methods attached that allow for interacting with the users feed.
 
-Publications have been removed to allow the use of your choice of publication package. For an example of publishing joined data for this package please visit the [publications page](https://github.com/copleykj/socialize-feed/wiki/Publications) of the wiki
+### Instance Methods ###
 
-[1]: https://github.com/copleykj/socialize-base-model
+**addPost(&lt;String&gt; body)** - Add a post to the users feed.
+
+```javascript
+const usersFeed = Meteor.user().feed();
+
+usersFeed.addPost("Socialize Packages Rock!");
+
+usersFeed.posts().fetch()
+```
+
+[1]: https://github.com/copleykj/socialize-postable
 [2]: https://github.com/copleykj/socialize-commentable
 [3]: https://github.com/copleykj/socialize-likeable
+[4]: https://github.com/copleykj/socialize-user-model
