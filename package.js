@@ -12,5 +12,6 @@ Package.onUse(function _(api) {
         'socialize:user-model@1.0.0', 'socialize:postable@1.0.0',
     ]);
 
+    api.mainModule('server.js', 'server');
     api.mainModule('common.js');
 });
