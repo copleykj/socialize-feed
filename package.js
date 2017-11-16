@@ -9,7 +9,6 @@ Package.onUse(function _(api) {
     api.versionsFrom('1.3');
 
     api.use([
-        'socialize:user-model@1.0.0',
         'socialize:user-blocking@1.0.0',
         'socialize:postable@1.0.0',
     ]);
