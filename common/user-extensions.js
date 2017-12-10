@@ -2,7 +2,7 @@
 import { User } from 'meteor/socialize:user-model';
 /* eslint-enable import/no-unresolved */
 
-import { Feed } from './FeedModel/Feed.js';
+import { Feed } from './Feed.js';
 
 User.methods({
     /**

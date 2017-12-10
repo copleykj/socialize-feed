@@ -1,3 +1,3 @@
-import './user-extensions.js';
+import './common/user-extensions.js';
 
-export { Feed } from './FeedModel/Feed.js';
+export { Feed } from './common/Feed.js';
