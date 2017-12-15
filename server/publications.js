@@ -17,7 +17,7 @@ const genericChildren = [
     {
         find(post) {
             if (post.posterId !== this.userId && post.linkedObjectId !== this.userId) {
-                return Meteor.users.find({ _id: { $in: [post.posterId, post.linkedObjectId] } });
+                return Meteor.users.find({ _id: { $in: [post.posterId, post.linkedObjectId] } }, { fields: User.fieldsToPublish });
             }
             return undefined;
         },
@@ -34,7 +34,7 @@ const genericChildren = [
             },
             {
                 find(comment) {
-                    return Meteor.users.find({ _id: comment.userId });
+                    return Meteor.users.find({ _id: comment.userId }, { fields: User.fieldsToPublish });
                 },
             },
         ],
