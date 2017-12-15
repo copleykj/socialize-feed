@@ -34,7 +34,10 @@ const genericChildren = [
             },
             {
                 find(comment) {
-                    return Meteor.users.find({ _id: comment.userId }, { fields: User.fieldsToPublish });
+                    if (comment.userId !== this.userId) {
+                        return Meteor.users.find({ _id: comment.userId }, { fields: User.fieldsToPublish });
+                    }
+                    return undefined;
                 },
             },
         ],
