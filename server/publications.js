@@ -68,7 +68,7 @@ publishComposite('socialize.feed.posts', function publishFeedPosts(userId, optio
             children: genericChildren,
         };
     }
-    return undefined;
+    return this.ready();
 });
 
 publishComposite('socialize.feed.postsByOwner', function publishPostsByOwner(userId, options = { limit: 10, sort: { createdAt: -1 } }) {
@@ -90,7 +90,7 @@ publishComposite('socialize.feed.postsByOwner', function publishPostsByOwner(use
             children: genericChildren,
         };
     }
-    return undefined;
+    return this.ready();
 });
 
 if (Package['socialize:friendships']) {
@@ -113,7 +113,7 @@ if (Package['socialize:friendships']) {
                 children: genericChildren,
             };
         }
-        return undefined;
+        return this.ready();
     });
 
     publishComposite('socialize.feed.friendsPostsToOwner', function publishFriendPostsToOwner(userId, options = { limit: 10, sort: { createdAt: -1 } }) {
@@ -135,7 +135,7 @@ if (Package['socialize:friendships']) {
                 children: genericChildren,
             };
         }
-        return undefined;
+        return this.ready();
     });
 
     publishComposite('socialize.feed.ownersPostsToFriends', function publishOwnersPostsToFriends(userId, options = { limit: 10, sort: { createdAt: -1 } }) {
@@ -157,6 +157,6 @@ if (Package['socialize:friendships']) {
                 children: genericChildren,
             };
         }
-        return undefined;
+        return this.ready();
     });
 }
