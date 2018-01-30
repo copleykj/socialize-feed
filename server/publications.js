@@ -1,6 +1,6 @@
 /* global Package */
 
-/* eslint-disable import/no-unresolved */
+/* eslint-disable import/no-unresolved, global-require */
 import { Meteor } from 'meteor/meteor';
 import { check, Match } from 'meteor/check';
 import { User } from 'meteor/socialize:user-model';
@@ -94,6 +94,12 @@ publishComposite('socialize.feed.postsByOwner', function publishPostsByOwner(use
 });
 
 if (Package['socialize:friendships']) {
+    const { FriendsCollection } = require('meteor/socialize:friendships');
+    const friendPublication = {
+        find(post) {
+            return FriendsCollection.find({ userId: this.userId, friendId: post.linkedObjectId });
+        },
+    };
     publishComposite('socialize.feed.friendsPosts', function publishFriendPosts(userId, options = { limit: 10, sort: { createdAt: -1 } }) {
         check(userId, String);
         check(options, optionsArgumentCheck);
@@ -110,7 +116,10 @@ if (Package['socialize:friendships']) {
                 find() {
                     return userToPublish.feed().friendsPosts(options);
                 },
-                children: genericChildren,
+                children: [
+                    ...genericChildren,
+                    friendPublication,
+                ],
             };
         }
         return this.ready();
@@ -132,7 +141,10 @@ if (Package['socialize:friendships']) {
                 find() {
                     return userToPublish.feed().friendsPostsToOwner(options);
                 },
-                children: genericChildren,
+                children: [
+                    ...genericChildren,
+                    friendPublication,
+                ],
             };
         }
         return this.ready();
@@ -154,7 +166,10 @@ if (Package['socialize:friendships']) {
                 find() {
                     return userToPublish.feed().ownersPostsToFriends(options);
                 },
-                children: genericChildren,
+                children: [
+                    ...genericChildren,
+                    friendPublication,
+                ],
             };
         }
         return this.ready();
