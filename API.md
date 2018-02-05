@@ -2,7 +2,7 @@
 
 This package extends the `User` class from [socialize:user-model][2] to add a `feed` method that returns an instance of the Feed class.
 
-**User.prototype.feed()** - Get a feed object for the user.
+**feed()** - Get a feed object for the user.
 
 ```javascript
 var feed = Meteor.user().feed();
@@ -57,6 +57,8 @@ Meteor.subscribe('socialize.feed.ownersPosts', Meteor.userId(), { limit: 20, sor
 **socialize.feed.posts** - publishes all posts that were posted by anyone to the users feed.
 
 **socialize.feed.ownersPosts** - publishes only posts that were posted by the owner of the feed.
+
+---
 
 ## Friendship Package Integration ##
 
