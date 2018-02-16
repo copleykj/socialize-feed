@@ -8,7 +8,7 @@ import { LinkParent } from 'meteor/socialize:linkable-model';
 
 export class Feed extends PostableModel(LinkParent) {
     postsByOwner(options = {}) {
-        return PostsCollection.find({ LinkedObjectId: this._id, posterId: this._id }, options);
+        return PostsCollection.find({ linkedObjectId: this._id, posterId: this._id }, options);
     }
 }
 
