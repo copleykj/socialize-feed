@@ -51,12 +51,12 @@ All publications take two arguments.
 
 ```javascript
 // example
-Meteor.subscribe('socialize.feed.ownersPosts', Meteor.userId(), { limit: 20, sort: { createdAt: 1 } });
+Meteor.subscribe('socialize.feed.postsByOwner', Meteor.userId(), { limit: 20, sort: { createdAt: 1 } });
 ```
 
-**socialize.feed.posts** - publishes all posts that were posted by anyone to the users feed.
+**socialize.feed.postsByOnwer** - publishes all posts that were posted by anyone to the users feed.
 
-**socialize.feed.ownersPosts** - publishes only posts that were posted by the owner of the feed.
+**socialize.feed.posts** - publishes only posts that were posted by the owner of the feed.
 
 ---
 
