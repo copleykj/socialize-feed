@@ -2,7 +2,7 @@
 Package.describe({
     name: 'socialize:feed',
     summary: 'A package for impmementing a social network style news feed',
-    version: '1.0.0',
+    version: '1.0.1',
 });
 
 Package.onUse(function _(api) {
