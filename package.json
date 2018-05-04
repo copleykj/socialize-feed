@@ -1,6 +1,6 @@
 {
     "name": "@socialize/feed",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "description": "Meteor's socialize:feed package ported for React Native",
     "main": "entry-rn.js",
     "scripts": {
@@ -21,6 +21,6 @@
     },
     "homepage": "https://github.com/copleykj/socialize-feed#readme",
     "dependencies": {
-        "@socialize/postable": "^0.0.1"
+        "@socialize/postable": "^1.0.0"
     }
 }
