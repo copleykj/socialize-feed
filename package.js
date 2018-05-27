@@ -11,12 +11,12 @@ Package.onUse(function _(api) {
 
     api.use([
         'check',
-        'reywood:publish-composite@1.5.2',
-        'socialize:user-blocking@1.0.0',
-        'socialize:postable@1.0.0',
+        'reywood:publish-composite@1.6.0',
+        'socialize:user-blocking@1.0.1',
+        'socialize:postable@1.0.1',
     ]);
 
-    api.use('socialize:friendships@1.0.0', { weak: true });
+    api.use('socialize:friendships@1.0.2', { weak: true });
 
     api.mainModule('server/server.js', 'server');
     api.mainModule('common/common.js', 'client');
