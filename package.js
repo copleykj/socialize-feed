@@ -2,7 +2,7 @@
 Package.describe({
     name: 'socialize:feed',
     summary: 'A package for impmementing a social network style news feed',
-    version: '1.0.1',
+    version: '1.0.2',
     git: 'https://github.com/copleykj/socialize-feed.git',
 });
 
