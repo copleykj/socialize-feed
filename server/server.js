@@ -4,6 +4,7 @@ import { PostsCollection } from 'meteor/socialize:postable';
 /* eslint-enable import/no-unresolved */
 
 import './publications.js';
+import '../common/common.js';
 
 PostsCollection.allow({
     insert(userId, post) {

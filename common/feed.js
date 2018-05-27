@@ -1,20 +1,13 @@
-/* global Package */
-
-/* eslint-disable import/no-unresolved */
-import { Meteor } from 'meteor/meteor';
-import { PostableModel, PostsCollection } from 'meteor/socialize:postable';
-import { LinkParent } from 'meteor/socialize:linkable-model';
-/* eslint-enable import/no-unresolved */
-
-export class Feed extends PostableModel(LinkParent) {
-    postsByOwner(options = {}) {
-        return PostsCollection.find({ linkedObjectId: this._id, posterId: this._id }, options);
+export default ({ PostableModel, PostsCollection, LinkParent }) => {
+    class Feed extends PostableModel(LinkParent) {
+        postsByOwner(options = {}) {
+            return PostsCollection.find({ linkedObjectId: this._id, posterId: this._id }, options);
+        }
     }
-}
+    return { Feed };
+};
 
-if (Package['socialize:friendships']) {
-    const { FriendsCollection } = require('meteor/socialize:friendships'); // eslint-disable-line
-
+export const extendFeedForFriends = ({ Meteor, Feed, PostsCollection }) => {
     Feed.methods({
         friendsPosts(options = {}) {
             const currentUser = Meteor.user();
@@ -47,4 +40,4 @@ if (Package['socialize:friendships']) {
             return undefined;
         },
     });
-}
+};
