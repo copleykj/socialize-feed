@@ -3,6 +3,7 @@ import Meteor from '@socialize/react-native-meteor';
 import { PostableModel, PostsCollection } from '@socialize/postable';
 import { LinkParent } from '@socialize/linkable-model';
 import { User } from '@socialize/user-model';
+import '@socialize/friendships';
 
 import extendUser from './common/user-extensions.js';
 import FeedConstruct, { extendFeedForFriends } from './common/feed.js';
@@ -10,8 +11,4 @@ import FeedConstruct, { extendFeedForFriends } from './common/feed.js';
 
 const { Feed } = FeedConstruct({ PostableModel, PostsCollection, LinkParent });
 extendUser({ User, Feed });
-
-try {
-    require('@socialize/friendships');
-    extendFeedForFriends({ Meteor, Feed, PostsCollection });
-} catch (e) {}
+extendFeedForFriends({ Meteor, Feed, PostsCollection });
