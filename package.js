@@ -2,7 +2,7 @@
 Package.describe({
     name: 'socialize:feed',
     summary: 'A package for impmementing a social network style news feed',
-    version: '1.0.2',
+    version: '1.0.3',
     git: 'https://github.com/copleykj/socialize-feed.git',
 });
 
@@ -16,7 +16,7 @@ Package.onUse(function _(api) {
         'socialize:postable@1.0.1',
     ]);
 
-    api.use('socialize:friendships@1.0.2', { weak: true });
+    api.use('socialize:friendships@1.1.0', { weak: true });
 
     api.mainModule('server/server.js', 'server');
     api.mainModule('common/common.js', 'client');
