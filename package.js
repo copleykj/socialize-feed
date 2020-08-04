@@ -12,8 +12,8 @@ Package.onUse(function _(api) {
     api.use([
         'check',
         'reywood:publish-composite@1.7.3',
-        'socialize:user-blocking@1.0.1',
-        'socialize:postable@1.0.1',
+        'socialize:user-blocking@1.0.3',
+        'socialize:postable@1.0.2',
     ]);
 
     api.use('socialize:friendships@1.1.0', { weak: true });
