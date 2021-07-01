@@ -1,6 +1,6 @@
 {
     "name": "@socialize/feed",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "Meteor's socialize:feed package ported for React Native",
     "main": "entry-rn.js",
     "scripts": {
