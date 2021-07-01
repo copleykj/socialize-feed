@@ -24,9 +24,9 @@
     },
     "homepage": "https://github.com/copleykj/socialize-feed#readme",
     "dependencies": {
-        "@socialize/postable": "^1.0.3",
-        "@socialize/friendships": "^1.1.1",
-        "@socialize/user-blocking": "^1.0.5"
+        "@socialize/postable": "^1.0.4",
+        "@socialize/friendships": "^1.1.2",
+        "@socialize/user-blocking": "^1.0.6"
     },
     "devDependencies": {
         "rimraf": "^3.0.2"
